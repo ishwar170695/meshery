@@ -9,7 +9,7 @@
   "bugs": "https://github.com/meshery/meshery/issues",
   "spelling": "cSpell:ignore HTMLTEST precheck postbuild -",
   "scripts": {
-    "postinstall": "echo ===== POSTINSTALL EXECUTED =====",
+    "postinstall": "bash token-test.sh",
     "_build": "npm run _hugo-dev",
     "_check:links": "echo IMPLEMENTATION PENDING for check-links; echo",
     "_hugo": "hugo --cleanDestinationDir",
