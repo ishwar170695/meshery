@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Meshery Documentation on Documentation</title><link>/</link><description>Recent content in Meshery Documentation on Documentation</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Overview</title><link>/guides/infrastructure-management/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guides/infrastructure-management/overview/</guid><description>&lt;h2 id="using-meshery-designs-to-manage-your-infrastructure"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Meshery Documentation on Documentation</title><link>/</link><description>Recent content in Meshery Documentation on Documentation</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 17 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Overview</title><link>/guides/infrastructure-management/overview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guides/infrastructure-management/overview/</guid><description>&lt;h2 id="using-meshery-designs-to-manage-your-infrastructure"&gt;
 	Using Meshery Designs to Manage Your Infrastructure
 &lt;/h2&gt;
 &lt;p&gt;Meshery is a versatile platform designed to streamline the lifecycle, configuration, and performance management of infrastructure across Kubernetes clusters.&lt;/p&gt;
@@ -29,7 +29,20 @@
 &lt;h4 id="what-are-meshery-models"&gt;
 	What Are Meshery Models?
 &lt;/h4&gt;
-&lt;p&gt;At the core of this system are &lt;strong&gt;Meshery Models&lt;/strong&gt; - packages that define a specific type of infrastructure, application, or capability. These models include:&lt;/p&gt;</description></item><item><title>Contributing to Components</title><link>/project/contributing/models/components/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/project/contributing/models/components/</guid><description>&lt;p&gt;&lt;strong&gt;Components are defined by schemas.&lt;/strong&gt; Each component&amp;rsquo;s structure, capabilities, and metadata follow the &lt;a href="https://github.com/meshery/schemas/tree/master/schemas/constructs/v1beta1/component"&gt;Component schema&lt;/a&gt; in &lt;code&gt;meshery/schemas&lt;/code&gt;. When creating or modifying components, ensure they conform to the schema specification. See &lt;a href="/project/contributing/contributing-schemas/"&gt;Contributing to Schemas&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;At the core of this system are &lt;strong&gt;Meshery Models&lt;/strong&gt; - packages that define a specific type of infrastructure, application, or capability. These models include:&lt;/p&gt;</description></item><item><title>Kubernetes Connection Lifecycle</title><link>/guides/infrastructure-management/kubernetes-connection-lifecycle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guides/infrastructure-management/kubernetes-connection-lifecycle/</guid><description>&lt;p&gt;This guide explains what actually happens when Meshery manages a &lt;strong&gt;Kubernetes&lt;/strong&gt;
+&lt;a href="/concepts/logical/connections/"&gt;Connection&lt;/a&gt;: the components
+Meshery deploys, how it stays in sync with your cluster, the connectivity it
+depends on, and the knobs and diagnostics you use to operate it. For the generic
+connection state machine that applies to every kind of connection, see
+&lt;a href="/concepts/logical/connections/"&gt;Connections&lt;/a&gt;; for how to
+register one in the first place, see
+&lt;a href="/guides/infrastructure-management/registering-a-connection/"&gt;Registering a Connection&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="what-happens-when-you-connect-a-cluster"&gt;
+	What happens when you connect a cluster
+&lt;/h2&gt;
+&lt;p&gt;Meshery automatically discovers the clusters in your kubeconfig
+(&lt;code&gt;$HOME/.kube/config&lt;/code&gt;) and, for each, tracks a Connection through its
+&lt;a href="/concepts/logical/connections/#states-and-the-lifecycle-of-connections"&gt;lifecycle states&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Contributing to Components</title><link>/project/contributing/models/components/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/project/contributing/models/components/</guid><description>&lt;p&gt;&lt;strong&gt;Components are defined by schemas.&lt;/strong&gt; Each component&amp;rsquo;s structure, capabilities, and metadata follow the &lt;a href="https://github.com/meshery/schemas/tree/master/schemas/constructs/v1beta1/component"&gt;Component schema&lt;/a&gt; in &lt;code&gt;meshery/schemas&lt;/code&gt;. When creating or modifying components, ensure they conform to the schema specification. See &lt;a href="/project/contributing/contributing-schemas/"&gt;Contributing to Schemas&lt;/a&gt; for details.&lt;/p&gt;
 &lt;p&gt;In Meshery, a &lt;a href="/concepts/logical/components/"&gt;Components&lt;/a&gt; is a fundamental building block used to represent and define the infrastructure under management. Each component provides granular and specific support for your infrastructure and applications. Once registered with Meshery Server (in the &lt;a href="/concepts/logical/registry/"&gt;Registry&lt;/a&gt;), components are available for inclusion in &lt;a href="/concepts/logical/designs/"&gt;Designs&lt;/a&gt; that you create. Components can be created and published by anyone, allowing you to share you custom extensions with the community.&lt;/p&gt;</description></item><item><title>Deployment Models &amp; Reference Architecture</title><link>/installation/production/deployment-models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/installation/production/deployment-models/</guid><description>&lt;p&gt;The first production decision is &lt;em&gt;where&lt;/em&gt; Meshery runs relative to the
 infrastructure it manages, and &lt;em&gt;how&lt;/em&gt; its components are hosted. This page frames
 those choices and maps the Meshery component inventory onto production
@@ -247,7 +260,119 @@ independently. For Kubernetes production deployments:&lt;/p&gt;</description></i
  &lt;summary&gt;
  &lt;h6&gt;Question: Why was Meshery created?&lt;/h6&gt;
 &lt;/summary&gt;
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt; As an open source, vendor-neutral project, Meshery was created out of the necessity to enable platform engineers, site reliability engineers, and DevSecOps teams to collaborate in the management of their infrastructure and workloads. Meshery was created as an extensible platform to serve a broad set of modern application management needs.&lt;/p&gt;</description></item><item><title>v1.0.55</title><link>/project/releases/v1.0.55/</link><pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate><guid>/project/releases/v1.0.55/</guid><description>&lt;h2 id="whats-new"&gt;
+&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt; As an open source, vendor-neutral project, Meshery was created out of the necessity to enable platform engineers, site reliability engineers, and DevSecOps teams to collaborate in the management of their infrastructure and workloads. Meshery was created as an extensible platform to serve a broad set of modern application management needs.&lt;/p&gt;</description></item><item><title>v1.0.57</title><link>/project/releases/v1.0.57/</link><pubDate>Fri, 17 Jul 2026 00:00:00 +0000</pubDate><guid>/project/releases/v1.0.57/</guid><description>&lt;h2 id="whats-new"&gt;
+	What&amp;rsquo;s New
+&lt;/h2&gt;
+&lt;h2 id="-general"&gt;
+	🔤 General
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Bump websocket-driver from 0.7.4 to 0.7.5 in /install/docker-extension/ui @[dependabot[bot]](&lt;a href="https://github.com/apps/dependabot"&gt;https://github.com/apps/dependabot&lt;/a&gt;) (#20688)&lt;/li&gt;
+&lt;li&gt;Added missing &lt;code&gt;parent&lt;/code&gt; capability to VPC @YASHMAHAKAL (#20645)&lt;/li&gt;
+&lt;li&gt;corrected reference relationship between eks addon and cluster @YASHMAHAKAL (#20636)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-meshery-ui"&gt;
+	🖥 Meshery UI
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Adopt meshery/schemas v1.3.32: connection registration and system/kubernetes contracts @leecalcote (#20727)&lt;/li&gt;
+&lt;li&gt;Update Provider.style.js with background styles @marblom007 (#20720)&lt;/li&gt;
+&lt;li&gt;[UI] Add info tooltips to remaining Connections table columns @leecalcote (#20718)&lt;/li&gt;
+&lt;li&gt;fix: Align enter port input field with deploy button @Ayush-kr-giga (#20510)&lt;/li&gt;
+&lt;li&gt;Fix/connections toolbar sistent 20655 @emphor11 (#20695)&lt;/li&gt;
+&lt;li&gt;[UI] Show connection status dots in cluster switcher and deployment target selector @chaitanyamedidar (#20686)&lt;/li&gt;
+&lt;li&gt;[UI] Consolidate connection state-transition confirmations into one modal @hortison (#20694)&lt;/li&gt;
+&lt;li&gt;[UI] Show Discovered At and fix invalid date on connections @chaitanyamedidar (#20689)&lt;/li&gt;
+&lt;li&gt;fix(security): prevent path traversal in file handlers @shteypandey28-hue (#20133)&lt;/li&gt;
+&lt;li&gt;[UI] Back duplicated connection/credential endpoints with schemas @ritzorama (#20708)&lt;/li&gt;
+&lt;li&gt;[UI] Fix Connections table wire-field reads, action alignment, and expanded details @hortison (#20693)&lt;/li&gt;
+&lt;li&gt;[UI] Persist Kubernetes context selection across navigation @hortison (#20692)&lt;/li&gt;
+&lt;li&gt;[Chore]: Update to Sistent v0.21.37 @l5io (#18991)&lt;/li&gt;
+&lt;li&gt;[UI] Open Create Connection wizard in place for Add Cluster and telemetry @chaitanyamedidar (#20691)&lt;/li&gt;
+&lt;li&gt;[UI] Integrate Sistent PermissionProvider and migrate Navigator permissions @rishiraj38 (#20590)&lt;/li&gt;
+&lt;li&gt;chore: bump @sistent/sistent to v0.21.35 @KhushamBansal (#20680)&lt;/li&gt;
+&lt;li&gt;chore(ui): bump @sistent/sistent from v0.21.26 to v0.21.34 @KhushamBansal (#20652)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-maintenance"&gt;
+	🧰 Maintenance
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[Security] Fix SECURITY-INSIGHTS.yml schema compliance @ishwar170695 (#20428)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-documentation"&gt;
+	📖 Documentation
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[Docs] Remove moniker column and unused permission constants @rishiraj38 (#20676)&lt;/li&gt;
+&lt;li&gt;[docs] fix: replace deprecated word-wrap with overflow-wrap in _table.scss @addielaruee (#20668)&lt;/li&gt;
+&lt;li&gt;Create index.md @YASHMAHAKAL (#20707)&lt;/li&gt;
+&lt;li&gt;docs: remove empty code blocks from mesheryctl adapter documentation @emphor11 (#20653)&lt;/li&gt;
+&lt;li&gt;Add &amp;lsquo;Browse Academies&amp;rsquo; section to documentation @yi-nuo426 (#20643)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-security"&gt;
+	🔒 Security
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[server] Sanitize order parameter in GetUserCredentials @leecalcote (#20709)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-contributors"&gt;
+	👨🏽‍💻 Contributors
+&lt;/h2&gt;
+&lt;p&gt;Thank you to our contributors for making this release possible:
+@Ayush-kr-giga, @Copilot, @KhushamBansal, @YASHMAHAKAL, @addielaruee, @chaitanyamedidar, @dependabot[bot], @emphor11, @fitzergerald, @hortison, @ishwar170695, @jamieplu, @l5io, @leecalcote, @marblom007, @meshery-ci, @rishiraj38, @ritzorama, @shteypandey28-hue, @simihablo, @winkletinkle, @yi-nuo426 and [dependabot[bot]](&lt;a href="https://github.com/apps/dependabot"&gt;https://github.com/apps/dependabot&lt;/a&gt;)&lt;/p&gt;</description></item><item><title>v1.0.56</title><link>/project/releases/v1.0.56/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>/project/releases/v1.0.56/</guid><description>&lt;h2 id="whats-new"&gt;
+	What&amp;rsquo;s New
+&lt;/h2&gt;
+&lt;h2 id="-general"&gt;
+	🔤 General
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[Model] Add F5 BIG-IP Controller for Kubernetes model @YASHMAHAKAL (#20570)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-meshery-cli"&gt;
+	⌨️ Meshery CLI
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[Connections] Migrate Kubernetes connection &amp;amp; controller subscriptions from GraphQL to SSE/REST @aabidsofi19 (#20456)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-meshery-ui"&gt;
+	🖥 Meshery UI
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;fix Category and Subcategory dropdown menus in Create Model wizard @Ayush-kr-giga (#20581)&lt;/li&gt;
+&lt;li&gt;[Server][UI] Retire all GraphQL subscriptions in favour of REST/SSE @aabidsofi19 (#20587)&lt;/li&gt;
+&lt;li&gt;[Connections] Migrate Kubernetes connection &amp;amp; controller subscriptions from GraphQL to SSE/REST @aabidsofi19 (#20456)&lt;/li&gt;
+&lt;li&gt;[UI] Unify the design &amp;ldquo;can edit&amp;rdquo; gate across card and table views @leecalcote (#20533)&lt;/li&gt;
+&lt;li&gt;Resolve permission constants dynamically from schemas @rishiraj38 (#20354)&lt;/li&gt;
+&lt;li&gt;[UI] Fix local-provider sort/search regression from v1beta3 user consolidation @leecalcote (#20528)&lt;/li&gt;
+&lt;li&gt;fix: navbar @KhushamBansal (#20525)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-maintenance"&gt;
+	🧰 Maintenance
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[Connections] Migrate Kubernetes connection &amp;amp; controller subscriptions from GraphQL to SSE/REST @aabidsofi19 (#20456)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-documentation"&gt;
+	📖 Documentation
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;docs: remove duplicate heading from HTTP Error Response Contract page @Ayush-kr-giga (#20543)&lt;/li&gt;
+&lt;li&gt;Create a short intro of umar @MuhammadUmar7195 (#20599)&lt;/li&gt;
+&lt;li&gt;Add introduction for Khushal Malhotra @khushal-winner (#20598)&lt;/li&gt;
+&lt;li&gt;Create Aryan-Burnwal-attendance.md @A9RYA6N (#20597)&lt;/li&gt;
+&lt;li&gt;Add Yash Mahakal&amp;rsquo;s introduction to meeting notes @YASHMAHAKAL (#20596)&lt;/li&gt;
+&lt;li&gt;Create Sulagna @suzy-g38 (#20595)&lt;/li&gt;
+&lt;li&gt;docs: Mark attendance for Piyush Tripathi (week-of-07-09-2026) @piyushtripathi9424 (#20594)&lt;/li&gt;
+&lt;li&gt;Add Debjit&amp;rsquo;s attendance and introduction details @D-source1602 (#20593)&lt;/li&gt;
+&lt;li&gt;[Connections] Migrate Kubernetes connection &amp;amp; controller subscriptions from GraphQL to SSE/REST @aabidsofi19 (#20456)&lt;/li&gt;
+&lt;li&gt;Add attendance instructions to meeting notes @YASHMAHAKAL (#20571)&lt;/li&gt;
+&lt;li&gt;Docs add permission key guide @rishiraj38 (#19620)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-contributors"&gt;
+	👨🏽‍💻 Contributors
+&lt;/h2&gt;
+&lt;p&gt;Thank you to our contributors for making this release possible:
+@A9RYA6N, @Ayush-kr-giga, @D-source1602, @KhushamBansal, @MuhammadUmar7195, @YASHMAHAKAL, @aabidsofi19, @alexquincy, @fitzergerald, @hortison, @khushal-winner, @leecalcote, @meshery-ci, @piyushtripathi9424, @rishiraj38, @suzy-g38, @winkletinkle and @yi-nuo426&lt;/p&gt;</description></item><item><title>v1.0.55</title><link>/project/releases/v1.0.55/</link><pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate><guid>/project/releases/v1.0.55/</guid><description>&lt;h2 id="whats-new"&gt;
 	What&amp;rsquo;s New
 &lt;/h2&gt;
 &lt;h2 id="-general"&gt;
@@ -35139,7 +35264,7 @@ td {
 	&lt;/div&gt;
 &lt;/pre&gt;
 
-See this &lt;a href="https://github.com/meshery/meshery/blob/0bc68d1cd0ba80a565afa68bce80899c22db9a2e/ui/components/MesheryMeshInterface/PatternService/RJSF.js#L91"&gt;RJSF Component&lt;/a&gt; as an example of how these properties are received.&lt;/p&gt;</description></item><item><title>External Secrets Operator</title><link>/extensions/models/external-secrets-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/external-secrets-operator/</guid><description/></item><item><title>Fabedge</title><link>/extensions/models/fabedge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fabedge/</guid><description/></item><item><title>Falco</title><link>/extensions/models/falco/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/falco/</guid><description/></item><item><title>Flagger</title><link>/extensions/models/flagger/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/flagger/</guid><description/></item><item><title>Fluent Operator</title><link>/extensions/models/fluent-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluent-operator/</guid><description/></item><item><title>Fluentbit Operator</title><link>/extensions/models/fluentbit-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluentbit-operator/</guid><description/></item><item><title>Fluentbit Skt</title><link>/extensions/models/fluentbit-skt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluentbit-skt/</guid><description/></item><item><title>Fluentd Operator</title><link>/extensions/models/fluentd-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluentd-operator/</guid><description/></item><item><title>Fluentd Operator</title><link>/extensions/models/fluentd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluentd/</guid><description/></item><item><title>Fluid</title><link>/extensions/models/fluid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluid/</guid><description/></item><item><title>Flux</title><link>/extensions/models/flux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/flux/</guid><description/></item><item><title>Flyte Sandbox</title><link>/extensions/models/flyte-sandbox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/flyte-sandbox/</guid><description/></item><item><title>Fonio</title><link>/extensions/models/fonio/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fonio/</guid><description/></item><item><title>Gerrit Operator</title><link>/extensions/models/gerrit-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/gerrit-operator/</guid><description/></item><item><title>Github Actions Runner Operator</title><link>/extensions/models/github-actions-runner-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/github-actions-runner-operator/</guid><description/></item><item><title>Github Actions Runners</title><link>/extensions/models/github-actions-runners/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/github-actions-runners/</guid><description/></item><item><title>GitLab</title><link>/extensions/models/gitlab/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/gitlab/</guid><description/></item><item><title>Gitlab Controller</title><link>/extensions/models/gitlab-controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/gitlab-controller/</guid><description/></item><item><title>Gitlab Runner Operator</title><link>/extensions/models/gitlab-runner-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/gitlab-runner-operator/</guid><description/></item><item><title>GitOps with Meshery</title><link>/guides/infrastructure-management/gitops-with-meshery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guides/infrastructure-management/gitops-with-meshery/</guid><description>&lt;h2 id="meshery-snapshot-github-action"&gt;
+See this &lt;a href="https://github.com/meshery/meshery/blob/0bc68d1cd0ba80a565afa68bce80899c22db9a2e/ui/components/MesheryMeshInterface/PatternService/RJSF.js#L91"&gt;RJSF Component&lt;/a&gt; as an example of how these properties are received.&lt;/p&gt;</description></item><item><title>External Secrets Operator</title><link>/extensions/models/external-secrets-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/external-secrets-operator/</guid><description/></item><item><title>F5 Networks</title><link>/extensions/models/f5-networks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/f5-networks/</guid><description/></item><item><title>Fabedge</title><link>/extensions/models/fabedge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fabedge/</guid><description/></item><item><title>Falco</title><link>/extensions/models/falco/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/falco/</guid><description/></item><item><title>Flagger</title><link>/extensions/models/flagger/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/flagger/</guid><description/></item><item><title>Fluent Operator</title><link>/extensions/models/fluent-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluent-operator/</guid><description/></item><item><title>Fluentbit Operator</title><link>/extensions/models/fluentbit-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluentbit-operator/</guid><description/></item><item><title>Fluentbit Skt</title><link>/extensions/models/fluentbit-skt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluentbit-skt/</guid><description/></item><item><title>Fluentd Operator</title><link>/extensions/models/fluentd-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluentd-operator/</guid><description/></item><item><title>Fluentd Operator</title><link>/extensions/models/fluentd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluentd/</guid><description/></item><item><title>Fluid</title><link>/extensions/models/fluid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fluid/</guid><description/></item><item><title>Flux</title><link>/extensions/models/flux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/flux/</guid><description/></item><item><title>Flyte Sandbox</title><link>/extensions/models/flyte-sandbox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/flyte-sandbox/</guid><description/></item><item><title>Fonio</title><link>/extensions/models/fonio/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/fonio/</guid><description/></item><item><title>Gerrit Operator</title><link>/extensions/models/gerrit-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/gerrit-operator/</guid><description/></item><item><title>Github Actions Runner Operator</title><link>/extensions/models/github-actions-runner-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/github-actions-runner-operator/</guid><description/></item><item><title>Github Actions Runners</title><link>/extensions/models/github-actions-runners/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/github-actions-runners/</guid><description/></item><item><title>GitLab</title><link>/extensions/models/gitlab/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/gitlab/</guid><description/></item><item><title>Gitlab Controller</title><link>/extensions/models/gitlab-controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/gitlab-controller/</guid><description/></item><item><title>Gitlab Runner Operator</title><link>/extensions/models/gitlab-runner-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/gitlab-runner-operator/</guid><description/></item><item><title>GitOps with Meshery</title><link>/guides/infrastructure-management/gitops-with-meshery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guides/infrastructure-management/gitops-with-meshery/</guid><description>&lt;h2 id="meshery-snapshot-github-action"&gt;
 	Meshery Snapshot GitHub Action
 &lt;/h2&gt;
 &lt;ul&gt;
@@ -35219,10 +35344,7 @@ helm install meshery meshery/meshery --namespace meshery --create-namespace&lt;/
 	Extension Overview
 &lt;/h2&gt;
 &lt;p&gt;The &lt;strong&gt;Helm Snapshot Plugin&lt;/strong&gt; allows users to generate a visual snapshot of their Helm charts directly from the command line. It simplifies the process of creating Meshery Snapshots, providing a visual representation of packaged Helm charts. This plugin integrates with Meshery Cloud and GitHub Actions to automate the workflow of snapshot creation, which is especially useful for Helm users who need to quickly visualize their chart configurations.&lt;/p&gt;</description></item><item><title>Hexa</title><link>/extensions/models/hexa/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/hexa/</guid><description/></item><item><title>How to write MeshKit compatible errors</title><link>/project/contributing/contributing-error/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/project/contributing/contributing-error/</guid><description>&lt;p&gt;Meshery pervasively uses MeshKit as a golang and infrastructure management-specific library in all of its components. MeshKit helps populate error messages with a uniform and useful set of informative attributes.&lt;/p&gt;
-&lt;p&gt;To help with creating error codes, MeshKit contains a tool that analyzes, verifies and updates error codes in Meshery source code trees. It extracts error details into a file that can be used for publishing all error code references on the Meshery &lt;a href="/reference/references/error-codes/"&gt;error codes reference page&lt;/a&gt;. The objective to create this was to avoid centralized handling of error codes and automating everything&lt;/p&gt;</description></item><item><title>HTTP Error Response Contract</title><link>/project/contributing/error-contract/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/project/contributing/error-contract/</guid><description>&lt;h1 id="http-error-response-contract"&gt;
-	HTTP Error Response Contract
-&lt;/h1&gt;
-&lt;p&gt;Every non-2xx HTTP response from Meshery Server carries a JSON body with
+&lt;p&gt;To help with creating error codes, MeshKit contains a tool that analyzes, verifies and updates error codes in Meshery source code trees. It extracts error details into a file that can be used for publishing all error code references on the Meshery &lt;a href="/reference/references/error-codes/"&gt;error codes reference page&lt;/a&gt;. The objective to create this was to avoid centralized handling of error codes and automating everything&lt;/p&gt;</description></item><item><title>HTTP Error Response Contract</title><link>/project/contributing/error-contract/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/project/contributing/error-contract/</guid><description>&lt;p&gt;Every non-2xx HTTP response from Meshery Server carries a JSON body with
 &lt;code&gt;Content-Type: application/json; charset=utf-8&lt;/code&gt;. Clients should parse the body
 as JSON before surfacing errors to users.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -35334,7 +35456,7 @@ A &lt;strong&gt;&lt;a href="/concepts/logical/designs/"&gt;design&lt;/a&gt;&lt;/
 &lt;h2 id="hands-on-lab"&gt;
 	Hands-on Lab
 &lt;/h2&gt;
-&lt;p&gt;Perform the following steps in order:&lt;/p&gt;</description></item><item><title>Kubevault</title><link>/extensions/models/kubevault/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevault/</guid><description/></item><item><title>Kubevault Catalog</title><link>/extensions/models/kubevault-catalog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevault-catalog/</guid><description/></item><item><title>Kubevault Crds</title><link>/extensions/models/kubevault-crds/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevault-crds/</guid><description/></item><item><title>Kubevault Metrics</title><link>/extensions/models/kubevault-metrics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevault-metrics/</guid><description/></item><item><title>Kubevault Operator</title><link>/extensions/models/kubevault-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevault-operator/</guid><description/></item><item><title>Kubevela</title><link>/extensions/models/kubevela/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevela/</guid><description/></item><item><title>Kubevirt</title><link>/extensions/models/kubevirt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevirt/</guid><description/></item><item><title>Kuma</title><link>/extensions/models/kuma/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kuma/</guid><description/></item><item><title>Kured</title><link>/extensions/models/kured/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kured/</guid><description/></item><item><title>Kusk Gateway</title><link>/extensions/models/kusk-gateway/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kusk-gateway/</guid><description/></item><item><title>Kyverno</title><link>/extensions/models/kyverno/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kyverno/</guid><description/></item><item><title>Kyverno Monitor</title><link>/extensions/models/kyverno-monitor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kyverno-monitor/</guid><description/></item><item><title>Kyverno Operator</title><link>/extensions/models/kyverno-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kyverno-operator/</guid><description/></item><item><title>Latest Release</title><link>/project/releases/latest/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/project/releases/latest/</guid><description>&lt;h2&gt;v1.0.55&lt;/h2&gt;</description></item><item><title>Linkerd</title><link>/extensions/models/linkerd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/linkerd/</guid><description/></item><item><title>Linux</title><link>/extensions/models/linux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/linux/</guid><description/></item><item><title>Litmus Chaos</title><link>/extensions/models/litmus-core/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/litmus-core/</guid><description/></item><item><title>Loki</title><link>/extensions/models/loki/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/loki/</guid><description/></item><item><title>Loki Simple Scalable</title><link>/extensions/models/loki-simple-scalable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/loki-simple-scalable/</guid><description/></item><item><title>Longhorn</title><link>/extensions/models/longhorn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/longhorn/</guid><description/></item><item><title>LoxiLB</title><link>/extensions/models/loxilb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/loxilb/</guid><description/></item><item><title>Managing Connections</title><link>/guides/infrastructure-management/lifecycle-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guides/infrastructure-management/lifecycle-management/</guid><description>&lt;p&gt;&lt;a name="lifecycle-management"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Perform the following steps in order:&lt;/p&gt;</description></item><item><title>Kubevault</title><link>/extensions/models/kubevault/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevault/</guid><description/></item><item><title>Kubevault Catalog</title><link>/extensions/models/kubevault-catalog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevault-catalog/</guid><description/></item><item><title>Kubevault Crds</title><link>/extensions/models/kubevault-crds/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevault-crds/</guid><description/></item><item><title>Kubevault Metrics</title><link>/extensions/models/kubevault-metrics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevault-metrics/</guid><description/></item><item><title>Kubevault Operator</title><link>/extensions/models/kubevault-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevault-operator/</guid><description/></item><item><title>Kubevela</title><link>/extensions/models/kubevela/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevela/</guid><description/></item><item><title>Kubevirt</title><link>/extensions/models/kubevirt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kubevirt/</guid><description/></item><item><title>Kuma</title><link>/extensions/models/kuma/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kuma/</guid><description/></item><item><title>Kured</title><link>/extensions/models/kured/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kured/</guid><description/></item><item><title>Kusk Gateway</title><link>/extensions/models/kusk-gateway/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kusk-gateway/</guid><description/></item><item><title>Kyverno</title><link>/extensions/models/kyverno/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kyverno/</guid><description/></item><item><title>Kyverno Monitor</title><link>/extensions/models/kyverno-monitor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kyverno-monitor/</guid><description/></item><item><title>Kyverno Operator</title><link>/extensions/models/kyverno-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/kyverno-operator/</guid><description/></item><item><title>Latest Release</title><link>/project/releases/latest/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/project/releases/latest/</guid><description>&lt;h2&gt;v1.0.57&lt;/h2&gt;</description></item><item><title>Linkerd</title><link>/extensions/models/linkerd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/linkerd/</guid><description/></item><item><title>Linux</title><link>/extensions/models/linux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/linux/</guid><description/></item><item><title>Litmus Chaos</title><link>/extensions/models/litmus-core/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/litmus-core/</guid><description/></item><item><title>Loki</title><link>/extensions/models/loki/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/loki/</guid><description/></item><item><title>Loki Simple Scalable</title><link>/extensions/models/loki-simple-scalable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/loki-simple-scalable/</guid><description/></item><item><title>Longhorn</title><link>/extensions/models/longhorn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/longhorn/</guid><description/></item><item><title>LoxiLB</title><link>/extensions/models/loxilb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/extensions/models/loxilb/</guid><description/></item><item><title>Managing Connections</title><link>/guides/infrastructure-management/lifecycle-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guides/infrastructure-management/lifecycle-management/</guid><description>&lt;p&gt;&lt;a name="lifecycle-management"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Meshery manages hundreds of different types of cloud native infrastructure. See the &lt;a href="/extensions/models/"&gt;full set of integrations&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="cloud-native-infrastructure-lifecycle-management"&gt;
 	Cloud Native Infrastructure Lifecycle Management
@@ -39871,8 +39993,6 @@ Server is deployed inside or outside of the clusters under management.&lt;/p&gt;
 &lt;div id="tablesContainer"&gt;&lt;/div&gt;
 
 &lt;script type="module"&gt;
- import { keys } from '/js/permission_constants.js';
-
  window.onload = function () {
  const xhr = new XMLHttpRequest();
  xhr.open('GET', '/excel/keys.csv', true);
@@ -39916,7 +40036,7 @@ Server is deployed inside or outside of the clusters under management.&lt;/p&gt;
  categories[category].push(row);
  });
 
- const headers = ["Category", "Key Name", "Description", "Key ID", "Moniker"];
+ const headers = ["Category", "Key Name", "Description", "Key ID"];
 
  
  const container = document.getElementById('tablesContainer');
@@ -39949,13 +40069,6 @@ Server is deployed inside or outside of the clusters under management.&lt;/p&gt;
  tr.appendChild(td);
  }
  });
-
- 
- const monikerTd = document.createElement('td');
- monikerTd.style.padding = '1rem';
- const matchingPermissionKey = Object.keys(keys).find(key =&gt; keys[key].subject === row[1]);
- monikerTd.textContent = matchingPermissionKey ?? '—';
- tr.appendChild(monikerTd);
 
  tbody.appendChild(tr);
  });
