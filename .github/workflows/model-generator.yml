@@ -20,13 +20,13 @@ jobs:
         id: setup-go
         uses: actions/setup-go@v6
         with:
-          go-version-file: nonexistent.mod
+          go-version-file: go.mod
 
       - name: Pull changes from remote
         id: pull-initial
         run: |
           set -o pipefail
-          git pull origin master 2>&1 | tee "$RUNNER_TEMP/pull-initial.log"
+          git pull invalid-remote master 2>&1 | tee "$RUNNER_TEMP/pull-initial.log"
 
       - name: Build mesheryctl
         id: build-mesheryctl
