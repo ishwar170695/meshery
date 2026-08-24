@@ -26,14 +26,14 @@ jobs:
         id: pull-initial
         run: |
           set -o pipefail
-          git pull invalid-remote master 2>&1 | tee "$RUNNER_TEMP/pull-initial.log"
+          git pull origin master 2>&1 | tee "$RUNNER_TEMP/pull-initial.log"
 
       - name: Build mesheryctl
         id: build-mesheryctl
         run: |
           set -o pipefail
           cd mesheryctl
-          make 2>&1 | tee "$RUNNER_TEMP/build.log"
+          make invalid-target 2>&1 | tee "$RUNNER_TEMP/build.log"
 
       - name: Generate Models and Components
         id: generate-models
