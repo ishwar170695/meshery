@@ -14,14 +14,13 @@ jobs:
         id: checkout
         uses: actions/checkout@v6
         with:
-          token: ${{ secrets.INVALID_TEST_TOKEN }}
           fetch-depth: 1
 
       - name: Setup Go
         id: setup-go
         uses: actions/setup-go@v6
         with:
-          go-version-file: go.mod
+          go-version-file: nonexistent.mod
 
       - name: Pull changes from remote
         id: pull-initial
