@@ -6,7 +6,7 @@ on:
 
 jobs:
   generate-and-update-components:
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshery/meshery' || github.repository == 'ishwar170695/meshery'
     name: Generate and Update Components
     runs-on: ubuntu-24.04
     steps:
