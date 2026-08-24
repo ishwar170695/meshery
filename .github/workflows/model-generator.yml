@@ -6,7 +6,7 @@ on:
 
 jobs:
   generate-and-update-components:
-    if: github.repository == 'meshery/meshery' || github.repository == 'ishwar170695/meshery'
+    if: github.repository == 'meshery/meshery'
     name: Generate and Update Components
     runs-on: ubuntu-24.04
     steps:
@@ -14,6 +14,7 @@ jobs:
         id: checkout
         uses: actions/checkout@v6
         with:
+          token: ${{ secrets.GH_ACCESS_TOKEN }}
           fetch-depth: 1
 
       - name: Setup Go
@@ -26,14 +27,14 @@ jobs:
         id: pull-initial
         run: |
           set -o pipefail
-          git pull origin "${{ github.ref_name }}" 2>&1 | tee "$RUNNER_TEMP/pull-initial.log"
+          git pull origin master 2>&1 | tee "$RUNNER_TEMP/pull-initial.log"
 
       - name: Build mesheryctl
         id: build-mesheryctl
         run: |
           set -o pipefail
           cd mesheryctl
-          make invalid-target 2>&1 | tee "$RUNNER_TEMP/build.log"
+          make 2>&1 | tee "$RUNNER_TEMP/build.log"
 
       - name: Generate Models and Components
         id: generate-models
@@ -81,7 +82,7 @@ jobs:
         id: pull-pre-commit
         run: |
           set -o pipefail
-          git pull origin "${{ github.ref_name }}" 2>&1 | tee "$RUNNER_TEMP/pull-pre-commit.log"
+          git pull origin master 2>&1 | tee "$RUNNER_TEMP/pull-pre-commit.log"
 
       - name: Commit changes
         id: commit-changes
